@@ -44,7 +44,7 @@ public class CampoMinado {
             colocarMinas(x, y);
             this.instanteInicioJogo=System.currentTimeMillis();
         }
-        if (jogoTerminado || jogadorDerrotado) {
+        if (jogoTerminado) {
             return ;
         }
         if (minas[x][y]) {
