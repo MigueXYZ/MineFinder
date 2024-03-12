@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MinesFinder">
+  <grid id="27dc6" binding="painelPrincipal" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="800" height="600"/>
+    </constraints>
+    <properties>
+      <enabled value="true"/>
+      <minimumSize width="800" height="600"/>
+      <preferredSize width="800" height="600"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="6ea61" layout-manager="GridLayoutManager" row-count="7" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="5" left="5" bottom="5" right="0"/>
+        <constraints border-constraint="West"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="11b30" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Recordes"/>
+            </properties>
+          </component>
+          <component id="61698" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Nível Fácil"/>
+            </properties>
+          </component>
+          <component id="f8001" class="javax.swing.JLabel" binding="jogadorFacil">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Jogador"/>
+            </properties>
+          </component>
+          <component id="a5e1b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Nível Médio"/>
+            </properties>
+          </component>
+          <component id="b595d" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Nivel Difícil"/>
+            </properties>
+          </component>
+          <component id="d6e6e" class="javax.swing.JLabel" binding="valueFacil">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="999999"/>
+            </properties>
+          </component>
+          <component id="e64b4" class="javax.swing.JLabel" binding="jogadorMedio">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Jogador"/>
+            </properties>
+          </component>
+          <component id="fd431" class="javax.swing.JLabel" binding="jogadorDificil">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Jogador"/>
+            </properties>
+          </component>
+          <component id="25e16" class="javax.swing.JLabel" binding="valorMedio">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="999999"/>
+            </properties>
+          </component>
+          <component id="43c9d" class="javax.swing.JLabel" binding="valorDificil">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="999999"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="b47f1" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
+        <properties>
+          <minimumSize width="800" height="24"/>
+          <preferredSize width="800" height="24"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="80bb" class="javax.swing.JLabel">
+            <constraints/>
+            <properties>
+              <text value="MinesFinder v1.0"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="4c948" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="5" left="5" bottom="5" right="5"/>
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="17a8a" class="javax.swing.JButton" binding="jogoFacilButton">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="images/minas_facil.png"/>
+              <text value="Jogo Fácil"/>
+            </properties>
+          </component>
+          <component id="3403b" class="javax.swing.JButton" binding="jogoMedioButton">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="images/minas_medio.png"/>
+              <text value="Jogo Médio"/>
+            </properties>
+          </component>
+          <component id="e6925" class="javax.swing.JButton" binding="jogoDificilButton">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="images/minas_dificil.png"/>
+              <text value="Jogo Difícil"/>
+            </properties>
+          </component>
+          <component id="36f94" class="javax.swing.JButton" binding="btnSair">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Sair"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
