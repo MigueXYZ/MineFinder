@@ -44,19 +44,27 @@ public class CampoMinado {
             colocarMinas(x, y);
             this.instanteInicioJogo=System.currentTimeMillis();
         }
-        if (jogoTerminado || estado[x][y] < TAPADO) {
-            return;
+        if (jogoTerminado || jogadorDerrotado) {
+            return ;
         }
         if (minas[x][y]) {
             estado[x][y] = REBENTADO;
             jogoTerminado = true;
             jogadorDerrotado = true;
+            System.out.println("jogo(inside):"+jogoTerminado);
             duracaoJogo = System.currentTimeMillis() - instanteInicioJogo;
         } else {
             estado[x][y]=contarMinasVizinhas(x,y);
-            if(estado[x][y] == VAZIO){
-                revelarQuadriculasVizinhas(x,y);
-            }
+                if(estado[x][y] == VAZIO){
+                    revelarQuadriculasVizinhas(x,y);
+                }
+                else{
+                    if(estado[x][y] < TAPADO){
+                        if(estado[x][y]==contarMarcadosVizinhos(x,y)){
+                            revelarQuadriculasVizinhas(x,y);
+                        }
+                    }
+                }
             jogoTerminado=isVitoria();
             if (isVitoria()) {
                 jogoTerminado = true;
@@ -88,7 +96,6 @@ public class CampoMinado {
 
 
     private void revelarQuadriculasVizinhas(int x,int y){
-
         for (var i = Math.max(0, x - 1); i < Math.min(nrLinhas, x + 2); ++i) {
             for (var j = Math.max(0, y - 1); j < Math.min(nrColunas, y + 2); ++j)
             {
@@ -123,6 +130,20 @@ public class CampoMinado {
         }
         return numMinasVizinhas;
     }
+
+    private int contarMarcadosVizinhos(int x, int y) {
+        var numMarcadosVizinhos = 0;
+        for (var i = Math.max(0, x - 1); i < Math.min(nrLinhas, x + 2); ++i) {
+            for (var j = Math.max(0, y - 1); j < Math.min(nrColunas, y + 2); ++j)
+            {
+                if (estado[i][j]==MARCADO) {
+                    ++numMarcadosVizinhos;
+                }
+            }
+        }
+        return numMarcadosVizinhos;
+    }
+
     private void colocarMinas(int exceptoX, int exceptoY) {
         var aleatorio = new Random();
         var x = 0;

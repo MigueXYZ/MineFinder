@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MinesFinder extends JFrame {
     private JPanel painelPrincipal;
@@ -31,6 +34,13 @@ public class MinesFinder extends JFrame {
          recordesFacil= new TabelaRecordes();
          recordesMedio= new TabelaRecordes();
          recordesDificil=new TabelaRecordes();
+        lerRecordesDoDisco();
+        jogadorFacil.setText(recordesFacil.getNome());
+        valueFacil.setText(Long.toString(recordesFacil.getTempoJogo()/1000));
+        jogadorMedio.setText(recordesMedio.getNome());
+        valorMedio.setText(Long.toString(recordesMedio.getTempoJogo()/1000));
+        jogadorDificil.setText(recordesDificil.getNome());
+        valorDificil.setText(Long.toString(recordesDificil.getTempoJogo()/1000));
         recordesFacil.addTabelaRecordesListener(new TabelaRecordesListener() {
             @Override
             public void recordesActualizados(TabelaRecordes recordes) {
@@ -51,6 +61,7 @@ public class MinesFinder extends JFrame {
         });
     }
     private void btnSairActionPerformed(ActionEvent e) {
+        guardarRecordesDisco();
         System.exit(0);
     }
 
@@ -75,13 +86,51 @@ public class MinesFinder extends JFrame {
     private void recordesFacilActualizado(TabelaRecordes recordes) {
         jogadorFacil.setText(recordes.getNome());
         valueFacil.setText(Long.toString(recordes.getTempoJogo()/1000));
+        guardarRecordesDisco();
     }
     private void recordesMedioActualizado(TabelaRecordes recordes) {
         jogadorMedio.setText(recordes.getNome());
         valorMedio.setText(Long.toString(recordes.getTempoJogo()/1000));
+        guardarRecordesDisco();
     }
     private void recordesDificilActualizado(TabelaRecordes recordes) {
         jogadorDificil.setText(recordes.getNome());
         valorDificil.setText(Long.toString(recordes.getTempoJogo()/1000));
+        guardarRecordesDisco();
     }
+    private void guardarRecordesDisco() {
+        ObjectOutputStream oos = null;
+        try {
+            File f =new
+                    File(System.getProperty("user.home")+File.separator+"minesfinder.recordes");
+            oos = new ObjectOutputStream(new FileOutputStream(f));
+            oos.writeObject(recordesFacil);
+            oos.writeObject(recordesMedio);
+            oos.writeObject(recordesDificil);
+            oos.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MinesFinder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    private void lerRecordesDoDisco() {
+        ObjectInputStream ois = null;
+        File f = new
+                File(System.getProperty("user.home")+File.separator+"minesfinder.recordes");
+        if (f.canRead()) {
+            try {
+                ois = new ObjectInputStream(new FileInputStream(f));
+                recordesFacil=(TabelaRecordes) ois.readObject();
+                recordesMedio=(TabelaRecordes) ois.readObject();
+                recordesDificil=(TabelaRecordes) ois.readObject();
+                ois.close();
+            } catch (IOException ex) {
+                Logger.getLogger(MinesFinder.class.getName()).log(Level.SEVERE,
+                        null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(MinesFinder.class.getName()).log(Level.SEVERE,
+                        null, ex);
+            }
+        }
+    }
+
 }

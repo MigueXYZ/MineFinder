@@ -108,7 +108,10 @@ public class JanelaDeJogo extends JFrame {
         var botao = (BotaoCampoMinado) e.getSource();
         var x = botao.getLinha();
         var y = botao.getColuna();
-        campoMinado.revelarQuadricula(x, y);
+        System.out.println("jogoTerminado:"+campoMinado.isJogoTerminado());
+        if(!campoMinado.isJogadorDerrotado()) {
+            campoMinado.revelarQuadricula(x, y);
+        }
         actualizarEstadoBotoes();
         if (campoMinado.isJogoTerminado()) {
             if (campoMinado.isJogadorDerrotado()) {
